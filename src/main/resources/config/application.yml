@@ -22,6 +22,8 @@ spring:
       enabled: false
   liquibase:
     change-log: classpath:config/liquibase/master.xml
+  jackson:
+    default-property-inclusion: non_absent
 management:
   endpoint:
     health:
@@ -46,3 +48,5 @@ management:
         - logfile
         - loggers
         - threaddump
+server:
+  port: 8080
