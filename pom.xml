@@ -122,6 +122,7 @@
     <frontend-maven-plugin.version>2.0.0</frontend-maven-plugin.version>
     <npm.version>11.9.0</npm.version>
     <node.version>v24.13.1</node.version>
+    <git-commit-id-plugin.version>9.0.2</git-commit-id-plugin.version>
   </properties>
 
   <build>
@@ -281,6 +282,30 @@
           </executions>
           <configuration>
             <mainClass>io.mend.seed.Seed4jSampleApplicationApp</mainClass>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>io.github.git-commit-id</groupId>
+          <artifactId>git-commit-id-maven-plugin</artifactId>
+          <version>${git-commit-id-plugin.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>revision</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <failOnNoGitDirectory>false</failOnNoGitDirectory>
+            <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
+            <generateGitPropertiesFile>true</generateGitPropertiesFile>
+            <includeOnlyProperties>
+              <includeOnlyProperty>^git.commit.id.abbrev$</includeOnlyProperty>
+              <includeOnlyProperty>^git.commit.id.describe$</includeOnlyProperty>
+              <includeOnlyProperty>^git.branch$</includeOnlyProperty>
+              <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
+            </includeOnlyProperties>
+            <verbose>false</verbose>
           </configuration>
         </plugin>
       </plugins>
@@ -456,6 +481,10 @@
         <configuration>
           <installDirectory>${project.build.directory}</installDirectory>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>io.github.git-commit-id</groupId>
+        <artifactId>git-commit-id-maven-plugin</artifactId>
       </plugin>
     </plugins>
     <defaultGoal>spring-boot:run</defaultGoal>
