@@ -1,0 +1,16 @@
+{
+  "module" : "prettier",
+  "date" : "2026-02-21T18:08:23.516379742Z",
+  "properties" : {
+    "nodePackageManager" : "npm",
+    "packageName" : "io.mend.seed",
+    "projectName" : "Seed4J Sample Application",
+    "baseName" : "seed4jSampleApplication",
+    "serverPort" : 8080,
+    "endOfLine" : "lf",
+    "keycloakClientScopeName" : "seed4j",
+    "keycloakRealmName" : "seed4j",
+    "indentSize" : 2,
+    "springConfigurationFormat" : "yaml"
+  }
+}
