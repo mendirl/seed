@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.client.RestTestClient;
+import io.mend.seed.shared.authentication.infrastructure.primary.TestSecurityConfiguration;
 import io.mend.seed.Seed4jSampleApplicationApp;
 import io.mend.seed.cucumber.CucumberConfiguration.CucumberRestClientConfiguration;
 import io.mend.seed.cucumber.rest.CucumberRestClient;
@@ -18,7 +19,7 @@ import io.mend.seed.cucumber.rest.CucumberRestTestContext;
 @CucumberContextConfiguration
 @AutoConfigureRestTestClient
 @SpringBootTest(
-  classes = { Seed4jSampleApplicationApp.class, CucumberRestClientConfiguration.class },
+  classes = { Seed4jSampleApplicationApp.class, TestSecurityConfiguration.class, CucumberAuthenticationConfiguration.class, CucumberRestClientConfiguration.class },
   webEnvironment = WebEnvironment.RANDOM_PORT
 )
 public class CucumberConfiguration {

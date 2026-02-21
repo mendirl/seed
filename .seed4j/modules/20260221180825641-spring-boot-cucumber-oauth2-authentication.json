@@ -1,0 +1,16 @@
+{
+  "module" : "spring-boot-cucumber-oauth2-authentication",
+  "date" : "2026-02-21T18:08:25.641932848Z",
+  "properties" : {
+    "nodePackageManager" : "npm",
+    "packageName" : "io.mend.seed",
+    "projectName" : "Seed4J Sample Application",
+    "baseName" : "seed4jSampleApplication",
+    "serverPort" : 8080,
+    "endOfLine" : "lf",
+    "keycloakClientScopeName" : "seed4j",
+    "keycloakRealmName" : "seed4j",
+    "indentSize" : 2,
+    "springConfigurationFormat" : "yaml"
+  }
+}
