@@ -47,5 +47,6 @@ docker compose -f src/main/docker/postgresql.yml up -d
 - [Assertions](documentation/assertions.md)
 - [Vue](documentation/vue.md)
 - [PostgreSQL](documentation/postgresql.md)
+- [Logs Spy](documentation/logs-spy.md)
 
 <!-- seed4j-needle-documentation -->
