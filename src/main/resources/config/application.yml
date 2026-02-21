@@ -1,0 +1,8 @@
+logging:
+  level:
+    io:
+      mend:
+        seed: INFO
+spring:
+  application:
+    name: seed4jSampleApplication
