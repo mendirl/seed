@@ -15,3 +15,8 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/seed4jSampleApplication
     username: seed4jSampleApplication
+  devtools:
+    livereload:
+      enabled: false
+    restart:
+      enabled: false

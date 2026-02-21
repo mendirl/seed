@@ -3,3 +3,9 @@ logging:
     io:
       mend:
         seed: DEBUG
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
