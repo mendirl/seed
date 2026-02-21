@@ -7,6 +7,7 @@ import vue from '@vitejs/plugin-vue';
 export default defineConfig({
   plugins: [vue(), tsconfigPaths()],
   test: {
+    setupFiles: ['./src/test/setupTests.ts'],
     reporters: ['verbose', 'vitest-sonar-reporter'],
     outputFile: {
       'vitest-sonar-reporter': 'target/test-results/TESTS-results-sonar.xml',
