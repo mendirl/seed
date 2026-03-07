@@ -5,6 +5,7 @@ import I18NextVue from 'i18next-vue';
 import { provideForAuth } from '@/auth/application/AuthProvider';
 import { KeycloakHttp } from '@/auth/infrastructure/secondary/KeycloakHttp';
 import Keycloak from 'keycloak-js';
+import router from './router';
 // seed4j-needle-main-ts-import
 
 const app = createApp(AppVue);
@@ -18,5 +19,6 @@ const keycloakHttp = new KeycloakHttp(
 );
 
 provideForAuth(keycloakHttp);
+app.use(router);
 // seed4j-needle-main-ts-provider
 app.mount('#app');
