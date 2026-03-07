@@ -12,7 +12,6 @@
       src="../../../../content/images/seed4j_logo-name.png"
     />
     <h1>{{ appName }}: Vue + TypeScript + Vite</h1>
-    <h2>{{ $t('home.translationEnabled') }}</h2>
 
     <p>
       <a
