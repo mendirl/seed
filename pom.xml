@@ -85,6 +85,16 @@
       <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>${springdoc-openapi.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+      <version>${springdoc-openapi.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
@@ -165,6 +175,7 @@
     <node.version>v24.14.0</node.version>
     <git-commit-id-plugin.version>9.0.2</git-commit-id-plugin.version>
     <cucumber.version>7.34.3</cucumber.version>
+    <springdoc-openapi.version>3.0.2</springdoc-openapi.version>
   </properties>
 
   <build>
