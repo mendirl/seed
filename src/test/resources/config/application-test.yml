@@ -9,7 +9,7 @@ spring:
     hikari:
       maximum-pool-size: 2
     password: ''
-    url: jdbc:tc:postgresql:18.2:///seed4jSampleApplication?TC_TMPFS=/testtmpfs:rw
+    url: jdbc:tc:postgresql:18.3:///seed4jSampleApplication?TC_TMPFS=/testtmpfs:rw
     username: seed4jSampleApplication
   liquibase:
     contexts: test
