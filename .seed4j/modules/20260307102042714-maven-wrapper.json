@@ -1,0 +1,16 @@
+{
+  "module" : "maven-wrapper",
+  "date" : "2026-03-07T10:20:42.714358367Z",
+  "properties" : {
+    "nodePackageManager" : "npm",
+    "packageName" : "io.mend.seed",
+    "projectName" : "Seed4J Sample Application",
+    "baseName" : "seed4jSampleApplication",
+    "serverPort" : 8080,
+    "endOfLine" : "lf",
+    "keycloakClientScopeName" : "seed4j",
+    "keycloakRealmName" : "seed4j",
+    "indentSize" : 2,
+    "springConfigurationFormat" : "yaml"
+  }
+}
