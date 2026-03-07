@@ -19,5 +19,8 @@ spring:
         provider:
           oidc:
             issuer-uri: http://DO_NOT_CALL:9080/realms/seed4j
+  docker:
+    compose:
+      enabled: false
 server:
   port: 0
