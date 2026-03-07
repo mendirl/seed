@@ -50,6 +50,10 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jooq</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
@@ -78,6 +82,7 @@
     <jacoco.version>0.8.14</jacoco.version>
     <spring-boot.version>4.0.3</spring-boot.version>
     <testcontainers.version>2.0.3</testcontainers.version>
+    <jooq.version>3.20.11</jooq.version>
   </properties>
 
   <build>
@@ -329,6 +334,38 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.jooq</groupId>
+        <artifactId>jooq-codegen-maven</artifactId>
+        <version>${jooq.version}</version>
+        <executions>
+          <execution>
+            <id>jooq-codegen</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <jdbc>
+            <url>jdbc:postgresql://localhost:5432/seed4jSampleApplication</url>
+            <user>seed4jSampleApplication</user>
+            <password></password>
+          </jdbc>
+          <generator>
+            <database>
+              <name>org.jooq.meta.postgres.PostgresDatabase</name>
+              <includes>.*</includes>
+              <inputSchema>public</inputSchema>
+            </database>
+            <target>
+              <packageName>org.jooq.codegen</packageName>
+              <directory>target/generated-sources/jooq</directory>
+            </target>
+          </generator>
+        </configuration>
       </plugin>
     </plugins>
     <defaultGoal>spring-boot:run</defaultGoal>
