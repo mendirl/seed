@@ -149,6 +149,24 @@
       <artifactId>spring-boot-starter-security-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-api</artifactId>
+      <version>${json-web-token.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-impl</artifactId>
+      <version>${json-web-token.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-jackson</artifactId>
+      <version>${json-web-token.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <properties>
@@ -176,6 +194,7 @@
     <git-commit-id-plugin.version>9.0.2</git-commit-id-plugin.version>
     <cucumber.version>7.34.3</cucumber.version>
     <springdoc-openapi.version>3.0.2</springdoc-openapi.version>
+    <json-web-token.version>0.13.0</json-web-token.version>
   </properties>
 
   <build>
