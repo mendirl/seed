@@ -1,0 +1,16 @@
+{
+  "module" : "application-service-hexagonal-architecture-documentation",
+  "date" : "2026-03-07T10:20:41.778778947Z",
+  "properties" : {
+    "nodePackageManager" : "npm",
+    "packageName" : "io.mend.seed",
+    "projectName" : "Seed4J Sample Application",
+    "baseName" : "seed4jSampleApplication",
+    "serverPort" : 8080,
+    "endOfLine" : "lf",
+    "keycloakClientScopeName" : "seed4j",
+    "keycloakRealmName" : "seed4j",
+    "indentSize" : 2,
+    "springConfigurationFormat" : "yaml"
+  }
+}
