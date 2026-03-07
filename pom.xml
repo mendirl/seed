@@ -8,170 +8,27 @@
   <name>seed4jSampleApplication</name>
   <description>Seed4J Sample Application</description>
   <packaging>jar</packaging>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.junit</groupId>
-        <artifactId>junit-bom</artifactId>
-        <version>${junit-jupiter.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>${spring-boot.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-configuration-processor</artifactId>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.zaxxer</groupId>
-      <artifactId>HikariCP</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-devtools</artifactId>
-      <scope>runtime</scope>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-jooq</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-liquibase</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-validation</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-webmvc</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-restclient</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-oauth2-client</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>${springdoc-openapi.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
-      <version>${springdoc-openapi.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-test</artifactId>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.testcontainers</groupId>
-      <artifactId>testcontainers-postgresql</artifactId>
-      <version>${testcontainers.version}</version>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.reflections</groupId>
-      <artifactId>reflections</artifactId>
-      <version>${reflections.version}</version>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>${assertj.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-webmvc-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-junit-platform-engine</artifactId>
-      <version>${cucumber.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-java</artifactId>
-      <version>${cucumber.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-spring</artifactId>
-      <version>${cucumber.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-resttestclient</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.platform</groupId>
-      <artifactId>junit-platform-suite</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-security-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.jsonwebtoken</groupId>
-      <artifactId>jjwt-api</artifactId>
-      <version>${json-web-token.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.jsonwebtoken</groupId>
-      <artifactId>jjwt-impl</artifactId>
-      <version>${json-web-token.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.jsonwebtoken</groupId>
-      <artifactId>jjwt-jackson</artifactId>
-      <version>${json-web-token.version}</version>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-junit-jupiter</artifactId>
+      <version>${mockito.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -182,27 +39,12 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <maven.version>3.6.3</maven.version>
-    <junit-jupiter.version>6.0.3</junit-jupiter.version>
-    
-    
+    <assertj.version>3.27.7</assertj.version>
+    <mockito.version>5.22.0</mockito.version>
     <maven-enforcer-plugin.version>3.6.2</maven-enforcer-plugin.version>
     <compiler-plugin.version>3.15.0</compiler-plugin.version>
-    <surefire-plugin.version>3.5.4</surefire-plugin.version>
-    <failsafe-plugin.version>3.5.4</failsafe-plugin.version>
-    <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
-    <checkstyle.version>10.21.0</checkstyle.version>
-    <jacoco.version>0.8.14</jacoco.version>
-    <spring-boot.version>4.0.3</spring-boot.version>
-    <testcontainers.version>2.0.3</testcontainers.version>
-    <jooq.version>3.20.11</jooq.version>
-    <reflections.version>0.10.2</reflections.version>
-    <frontend-maven-plugin.version>2.0.0</frontend-maven-plugin.version>
-    <npm.version>11.9.0</npm.version>
-    <node.version>v24.13.1</node.version>
-    <git-commit-id-plugin.version>9.0.2</git-commit-id-plugin.version>
-    <cucumber.version>7.34.2</cucumber.version>
-    <springdoc-openapi.version>3.0.1</springdoc-openapi.version>
-    <json-web-token.version>0.13.0</json-web-token.version>
+    <surefire-plugin.version>3.5.5</surefire-plugin.version>
+    <failsafe-plugin.version>3.5.5</failsafe-plugin.version>
   </properties>
 
   <build>
@@ -261,133 +103,6 @@
             </rules>
           </configuration>
         </plugin>
-        <plugin>
-          <groupId>org.jacoco</groupId>
-          <artifactId>jacoco-maven-plugin</artifactId>
-          <version>${jacoco.version}</version>
-          <executions>
-            <execution>
-              <id>pre-unit-tests</id>
-              <goals>
-                <goal>prepare-agent</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>post-unit-test</id>
-              <phase>test</phase>
-              <goals>
-                <goal>report</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>pre-integration-tests</id>
-              <goals>
-                <goal>prepare-agent-integration</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>post-integration-tests</id>
-              <phase>post-integration-test</phase>
-              <goals>
-                <goal>report-integration</goal>
-              </goals>
-            </execution>
-            <execution>
-              <id>merge</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>merge</goal>
-              </goals>
-              <configuration>
-                <fileSets>
-                  <fileSet implementation="org.apache.maven.shared.model.fileset.FileSet">
-                    <directory>${project.basedir}</directory>
-                    <includes>
-                      <include>**/*.exec</include>
-                    </includes>
-                  </fileSet>
-                </fileSets>
-                <destFile>target/jacoco/allTest.exec</destFile>
-              </configuration>
-            </execution>
-            <execution>
-              <id>post-merge-report</id>
-              <phase>verify</phase>
-              <goals>
-                <goal>report</goal>
-              </goals>
-              <configuration>
-                <dataFile>target/jacoco/allTest.exec</dataFile>
-                <outputDirectory>target/jacoco/</outputDirectory>
-              </configuration>
-            </execution>
-            <execution>
-              <id>check</id>
-              <goals>
-                <goal>check</goal>
-              </goals>
-              <configuration>
-                <dataFile>target/jacoco/allTest.exec</dataFile>
-                <rules>
-                  <rule>
-                    <element>CLASS</element>
-                    <limits>
-                      <limit>
-                        <counter>BRANCH</counter>
-                        <value>MISSEDCOUNT</value>
-                        <maximum>0</maximum>
-                      </limit>
-                      <limit>
-                        <counter>LINE</counter>
-                        <value>MISSEDCOUNT</value>
-                        <maximum>0</maximum>
-                      </limit>
-                    </limits>
-                  </rule>
-                </rules>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-maven-plugin</artifactId>
-          <version>${spring-boot.version}</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>repackage</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <mainClass>io.mend.seed.Seed4jSampleApplicationApp</mainClass>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>io.github.git-commit-id</groupId>
-          <artifactId>git-commit-id-maven-plugin</artifactId>
-          <version>${git-commit-id-plugin.version}</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>revision</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <failOnNoGitDirectory>false</failOnNoGitDirectory>
-            <failOnUnableToExtractRepoInfo>false</failOnUnableToExtractRepoInfo>
-            <generateGitPropertiesFile>true</generateGitPropertiesFile>
-            <includeOnlyProperties>
-              <includeOnlyProperty>^git.commit.id.abbrev$</includeOnlyProperty>
-              <includeOnlyProperty>^git.commit.id.describe$</includeOnlyProperty>
-              <includeOnlyProperty>^git.branch$</includeOnlyProperty>
-              <includeOnlyProperty>^git.build.(time|version)$</includeOnlyProperty>
-            </includeOnlyProperties>
-            <verbose>false</verbose>
-          </configuration>
-        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -439,134 +154,6 @@
       <plugin>
         <artifactId>maven-enforcer-plugin</artifactId>
       </plugin>
-      <plugin>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>${maven-checkstyle-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>validate</id>
-            <phase>validate</phase>
-            <goals>
-              <goal>check</goal>
-            </goals>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>com.puppycrawl.tools</groupId>
-            <artifactId>checkstyle</artifactId>
-            <version>${checkstyle.version}</version>
-          </dependency>
-        </dependencies>
-        <configuration>
-          <configLocation>checkstyle.xml</configLocation>
-          <consoleOutput>true</consoleOutput>
-          <failsOnError>true</failsOnError>
-          <includeTestSourceDirectory>true</includeTestSourceDirectory>
-          <sourceDirectories>
-            <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
-          </sourceDirectories>
-          <testSourceDirectories>
-            <testSourceDirectory>${project.build.testSourceDirectory}</testSourceDirectory>
-          </testSourceDirectories>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.jooq</groupId>
-        <artifactId>jooq-codegen-maven</artifactId>
-        <version>${jooq.version}</version>
-        <executions>
-          <execution>
-            <id>jooq-codegen</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <jdbc>
-            <url>jdbc:postgresql://localhost:5432/seed4jSampleApplication</url>
-            <user>seed4jSampleApplication</user>
-            <password></password>
-          </jdbc>
-          <generator>
-            <database>
-              <name>org.jooq.meta.postgres.PostgresDatabase</name>
-              <includes>.*</includes>
-              <inputSchema>public</inputSchema>
-            </database>
-            <target>
-              <packageName>org.jooq.codegen</packageName>
-              <directory>target/generated-sources/jooq</directory>
-            </target>
-          </generator>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>com.github.eirslett</groupId>
-        <artifactId>frontend-maven-plugin</artifactId>
-        <version>${frontend-maven-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>install-node-and-npm</id>
-            <goals>
-              <goal>install-node-and-npm</goal>
-            </goals>
-            <configuration>
-              <nodeVersion>${node.version}</nodeVersion>
-              <npmVersion>${npm.version}</npmVersion>
-            </configuration>
-          </execution>
-          <execution>
-            <id>npm install</id>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>build front</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>run build</arguments>
-              <environmentVariables>
-                <APP_VERSION>${project.version}</APP_VERSION>
-              </environmentVariables>
-              <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
-            </configuration>
-          </execution>
-          <execution>
-            <id>front test</id>
-            <phase>test</phase>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>run test:coverage</arguments>
-              <npmInheritsProxyConfigFromMaven>false</npmInheritsProxyConfigFromMaven>
-            </configuration>
-          </execution>
-        </executions>
-        <configuration>
-          <installDirectory>${project.build.directory}</installDirectory>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>io.github.git-commit-id</groupId>
-        <artifactId>git-commit-id-maven-plugin</artifactId>
-      </plugin>
     </plugins>
-    <defaultGoal>spring-boot:run</defaultGoal>
   </build>
 </project>
