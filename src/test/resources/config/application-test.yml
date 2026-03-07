@@ -24,3 +24,10 @@ spring:
       enabled: false
 server:
   port: 0
+springdoc:
+  oauth2:
+    authorization-url: http://localhost:9080/realms/seed4j/protocol/openid-connect/auth
+  swagger-ui:
+    oauth:
+      client-id: web_app
+      realm: seed4j

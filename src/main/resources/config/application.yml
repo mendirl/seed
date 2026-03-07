@@ -78,3 +78,8 @@ springdoc:
     operationsSorter: alpha
     tagsSorter: alpha
     tryItOutEnabled: true
+    oauth:
+      client-id: web_app
+      realm: seed4j
+  oauth2:
+    authorization-url: http://localhost:9080/realms/seed4j/protocol/openid-connect/auth
