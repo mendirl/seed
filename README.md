@@ -62,5 +62,6 @@ docker compose -f src/main/docker/keycloak.yml up -d
 - [Cucumber authentication](documentation/cucumber-authentication.md)
 - [Sample](documentation/sample.md)
 - [Vue OAuth2 Keycloak Authentication Components](documentation/vue-oauth2-keycloak-authentication-components.md)
+- [Front hexagonal architecture](documentation/front-hexagonal-architecture.md)
 
 <!-- seed4j-needle-documentation -->
