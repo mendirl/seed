@@ -24,6 +24,7 @@ npm install
 
 ## Local environment
 
+- [Local server](http://localhost:8080)
 
 <!-- seed4j-needle-localEnvironment -->
 
@@ -49,5 +50,6 @@ docker compose -f src/main/docker/postgresql.yml up -d
 - [PostgreSQL](documentation/postgresql.md)
 - [Logs Spy](documentation/logs-spy.md)
 - [Dev tools](documentation/dev-tools.md)
+- [CORS configuration](documentation/cors-configuration.md)
 
 <!-- seed4j-needle-documentation -->
