@@ -177,6 +177,12 @@
       <version>${json-web-token.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.tngtech.archunit</groupId>
+      <artifactId>archunit-junit5-api</artifactId>
+      <version>${archunit-junit5.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <properties>
@@ -205,6 +211,7 @@
     <cucumber.version>7.34.3</cucumber.version>
     <springdoc-openapi.version>3.0.2</springdoc-openapi.version>
     <json-web-token.version>0.13.0</json-web-token.version>
+    <archunit-junit5.version>1.4.1</archunit-junit5.version>
   </properties>
 
   <build>
