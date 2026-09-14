@@ -204,7 +204,7 @@
     <testcontainers.version>2.0.3</testcontainers.version>
     <jooq.version>3.20.11</jooq.version>
     <reflections.version>0.10.2</reflections.version>
-    <frontend-maven-plugin.version>2.0.0</frontend-maven-plugin.version>
+    <frontend-maven-plugin.version>2.0.2</frontend-maven-plugin.version>
     <npm.version>11.10.1</npm.version>
     <node.version>v24.14.0</node.version>
     <git-commit-id-plugin.version>9.0.2</git-commit-id-plugin.version>
