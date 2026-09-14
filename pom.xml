@@ -208,7 +208,7 @@
     <npm.version>11.10.1</npm.version>
     <node.version>v24.14.0</node.version>
     <git-commit-id-plugin.version>9.0.2</git-commit-id-plugin.version>
-    <cucumber.version>7.34.3</cucumber.version>
+    <cucumber.version>7.34.8</cucumber.version>
     <springdoc-openapi.version>3.0.2</springdoc-openapi.version>
     <json-web-token.version>0.13.0</json-web-token.version>
     <archunit-junit5.version>1.4.1</archunit-junit5.version>
