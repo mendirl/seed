@@ -72,6 +72,10 @@
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jooq</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
@@ -111,6 +115,7 @@
     <spring-boot.version>4.1.2</spring-boot.version>
     <testcontainers.version>2.0.5</testcontainers.version>
     <archunit-junit5.version>1.5.1</archunit-junit5.version>
+    <jooq.version>3.21.9</jooq.version>
     <!-- Default value required by @{argLine} in surefire/failsafe, JaCoCo prepends its agent to it -->
   </properties>
 
@@ -389,6 +394,38 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.jooq</groupId>
+        <artifactId>jooq-codegen-maven</artifactId>
+        <version>${jooq.version}</version>
+        <executions>
+          <execution>
+            <id>jooq-codegen</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <jdbc>
+            <url>jdbc:postgresql://localhost:5432/seed4jSampleApplication</url>
+            <user>seed4jSampleApplication</user>
+            <password></password>
+          </jdbc>
+          <generator>
+            <database>
+              <name>org.jooq.meta.postgres.PostgresDatabase</name>
+              <includes>.*</includes>
+              <inputSchema>public</inputSchema>
+            </database>
+            <target>
+              <packageName>org.jooq.codegen</packageName>
+              <directory>target/generated-sources/jooq</directory>
+            </target>
+          </generator>
+        </configuration>
       </plugin>
     </plugins>
     <defaultGoal>spring-boot:run</defaultGoal>
