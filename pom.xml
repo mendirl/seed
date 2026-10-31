@@ -46,8 +46,23 @@
       <artifactId>commons-lang3</artifactId>
     </dependency>
     <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+    </dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>testcontainers-postgresql</artifactId>
+      <version>${testcontainers.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -72,6 +87,7 @@
     <jspecify.version>1.0.1</jspecify.version>
     <nullaway.version>0.14.3</nullaway.version>
     <spring-boot.version>4.1.2</spring-boot.version>
+    <testcontainers.version>2.0.5</testcontainers.version>
     <!-- Default value required by @{argLine} in surefire/failsafe, JaCoCo prepends its agent to it -->
   </properties>
 
