@@ -8,29 +8,18 @@
   <name>seed4jSampleApplication</name>
   <description>Seed4J Sample Application</description>
   <packaging>jar</packaging>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring-boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   <dependencies>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-params</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-junit-jupiter</artifactId>
-      <version>${mockito.version}</version>
-      <scope>test</scope>
-    </dependency>
     <dependency>
       <groupId>org.jspecify</groupId>
       <artifactId>jspecify</artifactId>
@@ -41,6 +30,19 @@
       <artifactId>nullaway-annotations</artifactId>
       <version>${nullaway.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <properties>
@@ -49,8 +51,8 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <maven.version>3.6.3</maven.version>
-    <assertj.version>3.27.7</assertj.version>
-    <mockito.version>5.24.0</mockito.version>
+    
+    
     <maven-enforcer-plugin.version>3.7.0</maven-enforcer-plugin.version>
     <compiler-plugin.version>3.16.0</compiler-plugin.version>
     <maven-dependency-plugin.version>3.11.0</maven-dependency-plugin.version>
@@ -61,6 +63,7 @@
     <jacoco.version>0.8.16</jacoco.version>
     <jspecify.version>1.0.1</jspecify.version>
     <nullaway.version>0.14.3</nullaway.version>
+    <spring-boot.version>4.1.2</spring-boot.version>
     <!-- Default value required by @{argLine} in surefire/failsafe, JaCoCo prepends its agent to it -->
   </properties>
 
@@ -214,6 +217,21 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <version>${spring-boot.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>repackage</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <mainClass>io.mend.seed.Seed4jSampleApplicationApp</mainClass>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
@@ -223,6 +241,12 @@
         <configuration>
           <release>${java.version}</release>
           <parameters>true</parameters>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.springframework.boot</groupId>
+              <artifactId>spring-boot-configuration-processor</artifactId>
+            </path>
+          </annotationProcessorPaths>
         </configuration>
       </plugin>
       <plugin>
@@ -315,6 +339,11 @@
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
       </plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
     </plugins>
+    <defaultGoal>spring-boot:run</defaultGoal>
   </build>
 </project>
