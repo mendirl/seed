@@ -14,5 +14,8 @@
   <logger name="org.postgresql" level="WARN" />
   <logger name="org.jboss.logging" level="WARN" />
   <logger name="com.tngtech.archunit" level="WARN" />
+  <logger name="liquibase" level="WARN" />
+  <logger name="LiquibaseSchemaResolver" level="INFO" />
+  <logger name="com.zaxxer.hikari" level="WARN" />
   <!-- seed4j-needle-logback-add-log -->
 </configuration>
