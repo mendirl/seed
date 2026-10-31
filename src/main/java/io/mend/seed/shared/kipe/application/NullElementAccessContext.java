@@ -1,5 +1,6 @@
 package io.mend.seed.shared.kipe.application;
 
+import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.Authentication;
 import io.mend.seed.shared.error.domain.Assert;
 import io.mend.seed.shared.generation.domain.ExcludeFromGeneratedCodeCoverage;
@@ -12,7 +13,7 @@ record NullElementAccessContext<T>(Authentication authentication, String action)
   }
 
   @Override
-  public T element() {
+  public @Nullable T element() {
     return null;
   }
 }
