@@ -1,12 +1,15 @@
 package io.mend.seed.shared.authentication.infrastructure.primary;
 
+import io.mend.seed.shared.error.domain.Assert;
 import io.mend.seed.shared.memoizer.domain.Memoizers;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.StreamSupport;
+import org.jspecify.annotations.Nullable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -39,11 +42,16 @@ class CustomClaimConverter implements Converter<Map<String, Object>, Map<String,
   private static final List<ClaimAppender> CLAIM_APPENDERS = buildAppenders();
 
   private final BearerTokenResolver bearerTokenResolver = new DefaultBearerTokenResolver();
-  private final MappedJwtClaimSetConverter delegate = MappedJwtClaimSetConverter.withDefaults(Collections.emptyMap());
-  private final Function<SubAttributes, ObjectNode> users;
+  private final MappedJwtClaimSetConverter delegate = MappedJwtClaimSetConverter.withDefaults(Map.of());
+  private final Function<SubAttributes, Optional<ObjectNode>> users;
 
   public CustomClaimConverter(ClientRegistration registration, RestTemplate restTemplate) {
-    this.users = Memoizers.of(subAttributes -> loadUser(registration, restTemplate, subAttributes));
+    String userInfoUri = Objects.requireNonNull(
+      registration.getProviderDetails().getUserInfoEndpoint().getUri(),
+      "User info endpoint URI should be configured"
+    );
+
+    this.users = Memoizers.of(subAttributes -> loadUser(userInfoUri, restTemplate, subAttributes));
   }
 
   private static List<ClaimAppender> buildAppenders() {
@@ -58,49 +66,47 @@ class CustomClaimConverter implements Converter<Map<String, Object>, Map<String,
     );
   }
 
+  @Override
   public Map<String, Object> convert(Map<String, Object> claims) {
     Map<String, Object> convertedClaims = this.delegate.convert(claims);
 
     if (RequestContextHolder.getRequestAttributes() instanceof ServletRequestAttributes attributes) {
-      ObjectNode user = getUser(claims, attributes);
-
-      appendCustomClaim(convertedClaims, user);
+      getUser(claims, attributes).ifPresent(user -> appendCustomClaim(convertedClaims, user));
     }
 
     return convertedClaims;
   }
 
-  private ObjectNode getUser(Map<String, Object> claims, ServletRequestAttributes attributes) {
-    return users.apply(new SubAttributes(claims.get(SUB).toString(), attributes));
+  private Optional<ObjectNode> getUser(Map<String, Object> claims, ServletRequestAttributes attributes) {
+    Object sub = claims.get(SUB);
+    Assert.notNull(SUB, sub);
+
+    return users.apply(new SubAttributes(sub.toString(), attributes));
   }
 
-  private ObjectNode loadUser(ClientRegistration registration, RestTemplate restTemplate, SubAttributes subAttributes) {
+  private Optional<ObjectNode> loadUser(String userInfoUri, RestTemplate restTemplate, SubAttributes subAttributes) {
     var headers = new HttpHeaders();
     headers.set(HttpHeaders.AUTHORIZATION, buildBearer(getToken(subAttributes.attributes)));
 
     ResponseEntity<ObjectNode> userInfo = restTemplate.exchange(
-      registration.getProviderDetails().getUserInfoEndpoint().getUri(),
+      userInfoUri,
       HttpMethod.GET,
       new HttpEntity<String>(headers),
       ObjectNode.class
     );
 
-    return userInfo.getBody();
+    return Optional.ofNullable(userInfo.getBody());
   }
 
-  private String getToken(ServletRequestAttributes attributes) {
+  private @Nullable String getToken(ServletRequestAttributes attributes) {
     return bearerTokenResolver.resolve(attributes.getRequest());
   }
 
-  private String buildBearer(String token) {
+  private String buildBearer(@Nullable String token) {
     return "Bearer " + token;
   }
 
   private void appendCustomClaim(Map<String, Object> claim, ObjectNode user) {
-    if (user == null) {
-      return;
-    }
-
     CLAIM_APPENDERS.forEach(appender -> appender.append(claim, user));
   }
 
@@ -108,11 +114,11 @@ class CustomClaimConverter implements Converter<Map<String, Object>, Map<String,
     void append(Map<String, Object> claim, ObjectNode user);
   }
 
-  private static class StandardClaimAppender implements ClaimAppender {
+  private static final class StandardClaimAppender implements ClaimAppender {
 
     private final String key;
 
-    public StandardClaimAppender(String key) {
+    private StandardClaimAppender(String key) {
       this.key = key;
     }
 
@@ -130,7 +136,7 @@ class CustomClaimConverter implements Converter<Map<String, Object>, Map<String,
     public void append(Map<String, Object> claim, ObjectNode user) {
       // Allow full name in a name claim - happens with Auth0
       if (user.has(NAME)) {
-        String[] name = user.get(NAME).asString().split("\\s+");
+        String[] name = user.get(NAME).asString().split("\\s+", 0);
 
         if (name.length > 0) {
           claim.put(GIVEN_NAME, name[0]);

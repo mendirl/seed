@@ -6,7 +6,7 @@ import io.mend.seed.shared.collection.domain.Seed4jSampleApplicationCollections;
 import io.mend.seed.shared.error.domain.Assert;
 
 public record Roles(Set<Role> roles) {
-  public static final Roles EMPTY = new Roles(null);
+  public static final Roles EMPTY = new Roles(Set.of());
 
   public Roles(Set<Role> roles) {
     this.roles = Seed4jSampleApplicationCollections.immutable(roles);

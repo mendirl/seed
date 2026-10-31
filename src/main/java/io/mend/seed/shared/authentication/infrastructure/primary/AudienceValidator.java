@@ -21,10 +21,11 @@ class AudienceValidator implements OAuth2TokenValidator<Jwt> {
     this.allowedAudience = allowedAudience;
   }
 
+  @Override
   public OAuth2TokenValidatorResult validate(Jwt jwt) {
     List<String> audience = jwt.getAudience();
 
-    if (audience.stream().anyMatch(allowedAudience::contains)) {
+    if (audience != null && audience.stream().anyMatch(allowedAudience::contains)) {
       return OAuth2TokenValidatorResult.success();
     }
 
