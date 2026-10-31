@@ -11,6 +11,7 @@ import io.mend.seed.shared.authentication.application.AuthenticatedUser;
 import io.mend.seed.shared.authentication.domain.Role;
 import io.mend.seed.shared.authentication.domain.Roles;
 import io.mend.seed.shared.authentication.domain.Username;
+import io.mend.seed.shared.error.domain.Assert;
 import io.mend.seed.shared.kipe.domain.Action;
 import io.mend.seed.shared.kipe.domain.Resource;
 import io.mend.seed.shared.kipe.domain.RolesAccesses;
@@ -33,7 +34,10 @@ public class Seed4jSampleApplicationAuthorizations {
   }
 
   public Username getUsername(Authentication authentication) {
-    return new Username(AuthenticatedUser.readPrincipal(authentication));
+    String principal = AuthenticatedUser.readPrincipal(authentication);
+    Assert.notNull("principal", principal);
+
+    return new Username(principal);
   }
 
   public boolean specificAuthorized(Authentication authentication, String action, Resource resource) {
