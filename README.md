@@ -60,5 +60,6 @@ docker compose -f src/main/docker/keycloak.yml up -d
 - [Kipe authorization](documentation/kipe-authorization.md)
 - [Kipe expression](documentation/kipe-expression.md)
 - [Cucumber authentication](documentation/cucumber-authentication.md)
+- [Sample](documentation/sample.md)
 
 <!-- seed4j-needle-documentation -->
