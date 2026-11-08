@@ -4,7 +4,7 @@
   "private": true,
   "description": "Seed4J Sample Application",
   "license": "UNLICENSED",
-  "packageManager": "npm@12.2.1",
+  "packageManager": "npm@12.2.2",
   "engines": {
     "node": ">=24"
   },
